@@ -8,11 +8,17 @@
     &__img {
         display: block;
         width: 100%;
-        height: calc(100dvh - val(--app-header-height) - 2 * var(--app-page-padding) - 76px);
+        max-height: 550px;
         min-height: 280px;
         object-fit: contain;
         border-radius: var(--app-radius);
         background: var(--mat-sys-surface-container-lowest)
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: row;
+        gap: 5px
     }
 
     &__remove {

@@ -3,3 +3,9 @@ export interface Photo {
     thumbnailUrl: string;
     fullUrl: string;
 }
+
+export enum EffectType {
+    Grayscale = '?grayscale',
+    Blur = '?blur',
+    None = ''
+}

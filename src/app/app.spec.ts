@@ -1,24 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
+import { provideRouter } from '@angular/router';
 
 describe('App', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [App],
-    })
-      .compileComponents();
-  });
+  it('should render the router outlet and the header component', async () => {
+    TestBed.configureTestingModule({ providers: [provideRouter([])] });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it('should render title', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, gallery-template');
+
+    const natEl: HTMLElement = fixture.nativeElement;
+
+    expect(natEl.querySelector('app-header')).not.toBeNull();
+    expect(natEl.querySelector('main router-outlet')).not.toBeNull();
   });
 });
