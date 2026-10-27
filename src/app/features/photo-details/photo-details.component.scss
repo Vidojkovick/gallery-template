@@ -1,0 +1,22 @@
+.detail {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: calc(100dvh - val(--app-header-height) - 2 * var(--app-page-padding) - 76px);
+        min-height: 280px;
+        object-fit: contain;
+        border-radius: var(--app-radius);
+        background: var(--mat-sys-surface-container-lowest)
+    }
+
+    &__remove {
+        --mat-button-filled-container-color: var(--mat-sys-error);
+        --mat-button-filled-label-text-color: var(--mat-sys-on-error);
+    }
+}

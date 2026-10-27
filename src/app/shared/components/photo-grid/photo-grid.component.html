@@ -1,1 +1,20 @@
-<p>photo-grid works!</p>
+<ul class="grid">
+    @for (photo of photos(); track photo.id; let i = $index) {
+        <li>
+            <button type="button" class="tile" matRipple (click)="photoClick.emit(photo)">
+                <img
+                    class="tile__img"
+                    [src]="photo.thumbnailUrl"
+                    width="200"
+                    height="300"
+                    loading="lazy"
+                />
+                @if (favoriteIds().has(photo.id)) {
+                    <span class="tile__badge" aria-hidden="true">
+                        <mat-icon>favorite</mat-icon>
+                    </span>
+                }
+            </button>
+        </li>
+    }
+</ul>

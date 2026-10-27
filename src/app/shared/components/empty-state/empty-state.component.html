@@ -1,1 +1,11 @@
-<p>empty-state works!</p>
+<section class="empty">
+    <mat-icon class="empty__icon" aria-hidden="true">
+        {{ icon() }}
+    </mat-icon>
+    <h2 class="empty__title">{{ title() }}</h2>
+    @if (message()) {
+        <p class="empty__message">
+            {{ message() }}
+        </p>
+    }
+</section>

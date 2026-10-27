@@ -1,1 +1,19 @@
-<p>photo-details works!</p>
+@if (photo(); as photo) {
+    <figure class="detail">
+        <img class="detail__img" [src]="photo.fullUrl" />
+        <figcaption class="detail__actions">
+            <button mat-flat-button type="button" class="detail__remove" (click)="remove()">
+                <mat-icon>heart_minus</mat-icon>
+                Remove from favorites
+            </button>
+        </figcaption>
+    </figure>
+} @else {
+    <app-empty-state
+        icon="image_not_supported"
+        title="Photo not found"
+        message="This photo isn't in your favorites (anymore)."
+    >
+        <a mat-flat-button routerLink="/favorites">Back to favorites</a>    
+    </app-empty-state>
+}

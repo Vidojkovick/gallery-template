@@ -1,1 +1,16 @@
-<p>favorites works!</p>
+@if (favorites().length) {
+    <app-photo-grid
+        [photos]="favorites()"
+        (photoClick)="open($event)"
+    />
+} @else {
+    <app-empty-state
+        icon="favorite_border"
+        title="No favorites yet"
+        description="Click any photo in the photos list to save it here."
+    >
+        <a mat-flat-button routerLink="/">
+            Browse photos
+        </a>
+    </app-empty-state>
+}

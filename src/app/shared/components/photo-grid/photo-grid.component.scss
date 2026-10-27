@@ -1,0 +1,75 @@
+:host {
+    display: block;
+}
+
+.grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+    gap: var(--app-gap);
+}
+
+.tile {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    padding: 0;
+    border: 0;
+    border-radius: var(--app-radius);
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--mat-sys-surface-container-high);
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--mat-sys-level3);
+    }
+
+    &:focus-visible {
+        outline: 3px solid var(--mat-sys-primary);
+        outline-offset: 3px;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__badge {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: grid;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        color: var(--mat-sys-on-primary);
+        background: var(--mat-sys-primary);
+        box-shadow: var(--mat-sys-level2);
+    }
+
+    mat-icon {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tile {
+        transition: none;
+
+        &:hover {
+            transform: none;
+        }
+    }
+}

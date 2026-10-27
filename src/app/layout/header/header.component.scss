@@ -1,0 +1,29 @@
+:host {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: block;
+}
+
+.header {
+    justify-content: center;
+    height: var(--app-header-height);
+    border-bottom: 1px solid var(--mat-sys-outline-variant);
+
+    &__nav {
+        display: flex;
+        gap: 12px;
+    }
+    
+    &__link {
+        min-width: 140px;
+        border-radius: 999px;
+        color: var(--mat-sys-on-surface-variant);
+        transition: background-color 150ms ease, color 150ms ease;
+
+        &.is-active {
+            color: var(--mat-sys-on-primary-container);
+            background-color: var(--mat-sys-primary-container);
+        }
+    }
+}

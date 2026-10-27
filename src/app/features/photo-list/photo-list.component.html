@@ -1,1 +1,11 @@
-<p>photo-list works!</p>
+<app-photo-grid
+    [photos]="photoService.photos()"
+    [favoriteIds]="favoritesService.ids()"
+    (photoClick)="addToFavorites($event)"
+    appInfiniteScroll
+    (scrolled)="photoService.loadMorePhotos()"
+/>
+
+@if (photoService.loading()) {
+    <mat-spinner class="spinner" diameter="50" />
+}

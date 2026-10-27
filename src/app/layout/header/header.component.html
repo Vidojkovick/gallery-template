@@ -1,1 +1,18 @@
-<p>header works!</p>
+<mat-toolbar class="header">
+    <nav class="header__nav">
+        <a mat-button class="header__link" routerLink="/" [class.is-active]="isPhotosActive()">
+            <mat-icon>photo_library</mat-icon>
+            Photos
+        </a>
+        <a mat-button class="header__link" routerLink="/favorites" [class.is-active]="!isPhotosActive()">
+            <mat-icon
+                [matBadge]="favorites().length"
+                [matBadgeHidden]="!favorites().length"
+                aria-hidden="false"
+                matBadgeSize="small">
+                favorite
+            </mat-icon>
+            Favorites
+        </a>
+    </nav>
+</mat-toolbar>
